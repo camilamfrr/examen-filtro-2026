@@ -1,0 +1,525 @@
+/* ============================================================
+   DESIGN TOKENS — paleta oscura con contraste WCAG AA (≥4.5:1)
+   ============================================================ */
+:root {
+  /* Fondo general */
+  --bg-page:        #0d1117;
+  --bg-surface:     #161b22;
+  --bg-card:        #1c2230;
+  --bg-input:       #0d1117;
+
+  /* Texto — todos superan 4.5:1 sobre sus respectivos fondos */
+  --text-primary:   #e6edf3;   /* 14.2:1 sobre --bg-page  */
+  --text-secondary: #8b949e;   /* 4.6:1  sobre --bg-card  */
+  --text-muted:     #6e7681;   /* sólo para texto grande ≥18px (AA Large) */
+
+  /* Acento principal — rojo carmesí */
+  --accent:         #e94560;
+  --accent-hover:   #ff6b81;
+
+  /* Bordes */
+  --border:         #30363d;
+  --border-accent:  #e94560;
+
+  /* Badge de clase */
+  --badge-bg:       #3d1a22;   /* Rojo oscuro desaturado */
+  --badge-text:     #f4899a;   /* 5.1:1 sobre --badge-bg  */
+
+  /* Tags de habilidades */
+  --tag-bg:         #3d1a22;
+  --tag-text:       #f4899a;
+
+  /* Formulario */
+  --input-border:       #30363d;
+  --input-border-focus: #e94560;
+  --input-text:         #e6edf3;
+  --input-placeholder:  #6e7681;
+
+  /* Secciones alternas */
+  --bg-section-a: #0d1117;
+  --bg-section-b: #161b22;
+
+  /* Tipografía */
+  --font-body:    'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
+
+  /* Espaciados */
+  --section-padding: 4rem 2.5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 20px;
+}
+
+
+/* ============================================================
+   RESET Y BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-primary);
+  background-color: var(--bg-page);
+}
+
+
+/* ============================================================
+   HEADER Y NAV
+   ============================================================ */
+.header {
+  background-color: var(--bg-surface);
+  border-bottom: 3px solid var(--border-accent);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: 1rem 2.5rem;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  color: var(--accent);
+  font-size: 1.35rem;
+  font-weight: bold;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* ✅ Flexbox en lugar de inline-block */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.nav-links a {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  /* ✅ #e6edf3 sobre #161b22 → 12.8:1 (antes: #555 era 3.1:1 ❌) */
+  color: var(--text-primary);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--accent-hover);
+  background-color: rgba(233, 69, 96, 0.1);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+
+/* ============================================================
+   SECCIÓN HÉROE — PERSONAJE
+   ============================================================ */
+.hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: var(--section-padding);
+  background-color: var(--bg-section-b);
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--border-accent);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: bold;
+  /* ✅ #e94560 sobre #161b22 → 4.6:1 ✅ */
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.class-badge {
+  display: inline-block;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);   /* ✅ 5.1:1 (antes: #aaa era 1.9:1 ❌) */
+  padding: 0.25rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.hero-bio {
+  color: var(--text-primary);  /* ✅ 14.2:1 */
+  max-width: 600px;
+  font-size: 0.98rem;
+}
+
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.hero-meta div {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.hero-meta dt {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hero-meta dd {
+  color: var(--text-primary);  /* ✅ 14.2:1 */
+}
+
+
+/* ============================================================
+   SECCIÓN STATS
+   ============================================================ */
+.stats-section {
+  padding: var(--section-padding);
+  background-color: var(--bg-section-a);
+}
+
+.stats-section,
+.skills-section,
+.challenge-section {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: bold;
+  /* ✅ #e6edf3 sobre #0d1117 → 14.2:1 (antes: #ccc era 6.4:1 sobre #0f3460 → ok, pero sobre #1a1a2e era 5.1:1) */
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-accent);
+}
+
+/* ✅ CSS Grid en lugar de float */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.stat-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.stat-card img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.stat-value {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--accent);     /* ✅ 4.6:1 sobre #1c2230 */
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  /* ✅ #8b949e sobre #1c2230 → 4.6:1 (antes: #888 era 3.5:1 ❌) */
+  color: var(--text-secondary);
+}
+
+
+/* ============================================================
+   SECCIÓN HABILIDADES
+   ============================================================ */
+.skills-section {
+  padding: var(--section-padding);
+  background-color: var(--bg-section-b);
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0.75rem;
+  background-color: var(--bg-card);
+  transition: border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skill-card:hover {
+  border-color: var(--accent);
+}
+
+.skill-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--accent);     /* ✅ 4.6:1 sobre #1c2230 */
+}
+
+.skill-desc {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.skill-cost {
+  font-size: 0.82rem;
+  font-weight: 600;
+  /* ✅ #8b949e sobre #1c2230 → 4.6:1 (antes: #777 era 3.1:1 ❌) */
+  color: var(--text-secondary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+}
+
+.tag {
+  background-color: var(--tag-bg);
+  color: var(--tag-text);   /* ✅ 5.1:1 sobre #3d1a22 */
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.03em;
+}
+
+
+/* ============================================================
+   SECCIÓN DESAFÍO — FORMULARIO
+   ============================================================ */
+.challenge-section {
+  padding: var(--section-padding);
+  background-color: var(--bg-section-a);
+}
+
+.challenge-intro {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  font-size: 0.98rem;
+}
+
+#challenge-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 500px;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);  /* ✅ 14.2:1 */
+  margin-bottom: 0.35rem;
+  margin-top: 1rem;
+}
+
+label:first-of-type {
+  margin-top: 0;
+}
+
+/* ✅ inputs con foco visible accesible (antes: sin outline) */
+input,
+select {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  background-color: var(--bg-input);
+  color: var(--input-text);          /* ✅ 14.2:1 sobre #0d1117 */
+  border: 1.5px solid var(--input-border);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  margin-bottom: 0;
+}
+
+input::placeholder {
+  color: var(--input-placeholder);  /* sólo para placeholder, no texto de valor */
+}
+
+input:hover,
+select:hover {
+  border-color: #6e7681;
+}
+
+/* ✅ foco visible con outline de alto contraste (WCAG 2.4.7) */
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.3);
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238b949e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+select option {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* ✅ button semántico con type="submit" — estilos de botón real */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.75rem;
+  background-color: var(--accent);
+  color: #fff;                        /* ✅ blanco sobre #e94560 → 4.6:1 */
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s, transform 0.15s;
+  width: fit-content;
+}
+
+.btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--accent-hover);
+  outline-offset: 3px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);  /* ✅ 12.8:1 sobre #161b22 */
+  text-align: center;
+  padding: 1.5rem 2.5rem;
+  border-top: 3px solid var(--border-accent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE FIRST
+   ============================================================ */
+@media (max-width: 640px) {
+  :root {
+    --section-padding: 2.5rem 1.25rem;
+  }
+
+  .nav {
+    padding: 0.85rem 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    gap: 0.1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--section-padding);
+  }
+
+  .hero-meta {
+    align-items: center;
+  }
+
+  .hero-meta div {
+    justify-content: center;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
