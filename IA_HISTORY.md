@@ -24,6 +24,7 @@
 
 ### Momento del proceso
 
+```
 <!--
   Indicá en qué punto del examen usaste este prompt.
   No es sobre la hora exacta — es sobre el contexto: ¿qué estabas intentando resolver cuando recurriste a la IA?
@@ -31,6 +32,7 @@
   Ej: "Al terminar el HTML, para verificar si me faltaba algo de accesibilidad."
   Ej: "Al principio del ejercicio de JS, para entender cómo arrancar."
 -->
+```
 
 ### Lo que le pedí a la IA
 
@@ -40,6 +42,7 @@
 
 ### Análisis del resultado obtenido
 
+```
 <!--
   Describí con tus propias palabras qué generó la IA. No copies el código ni la respuesta — analizála.
   Mínimo 3 oraciones. Respondé:
@@ -47,9 +50,11 @@
   - ¿El resultado era lo que esperabas? ¿Por qué sí o por qué no?
   - ¿Qué parte te resultó útil como punto de partida?
 -->
+```
 
 ### Qué debí corregir manualmente y por qué
 
+```
 <!--
   Esta sección es la más importante. Sé específico/a. Mínimo 3 oraciones.
   Respondé:
@@ -59,6 +64,7 @@
   - ¿Qué cambiaste exactamente para que funcionara bien?
   Si no corregiste nada, explicá por qué el resultado era correcto tal como estaba.
 -->
+```
 
 ---
 
@@ -66,6 +72,7 @@
 
 ### Momento del proceso
 
+```
 <!--
   Indicá en qué punto del examen usaste este prompt.
   No es sobre la hora exacta — es sobre el contexto: ¿qué estabas intentando resolver cuando recurriste a la IA?
@@ -73,6 +80,7 @@
   Ej: "Al terminar el HTML, para verificar si me faltaba algo de accesibilidad."
   Ej: "Al principio del ejercicio de JS, para entender cómo arrancar."
 -->
+```
 
 ### Lo que le pedí a la IA
 
@@ -82,6 +90,7 @@
 
 ### Análisis del resultado obtenido
 
+```
 <!--
   Describí con tus propias palabras qué generó la IA. No copies el código ni la respuesta — analizála.
   Mínimo 3 oraciones. Respondé:
@@ -89,9 +98,11 @@
   - ¿El resultado era lo que esperabas? ¿Por qué sí o por qué no?
   - ¿Qué parte te resultó útil como punto de partida?
 -->
+```
 
 ### Qué debí corregir manualmente y por qué
 
+```
 <!--
   Esta sección es la más importante. Sé específico/a. Mínimo 3 oraciones.
   Respondé:
@@ -101,14 +112,17 @@
   - ¿Qué cambiaste exactamente para que funcionara bien?
   Si no corregiste nada, explicá por qué el resultado era correcto tal como estaba.
 -->
+```
 
 ---
 
 ## Reflexión final
 
+```
 <!--
   Mínimo 3 oraciones. Respondé:
   - ¿Qué tipo de errores repitió la IA que tuviste que corregir?
   - ¿Hubo algo que la IA resolvió bien a la primera sin que necesitaras tocarlo?
   - ¿Cambiarías la forma en que le pedís cosas a la IA la próxima vez? ¿Por qué?
 -->
+```
